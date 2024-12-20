@@ -1,9 +1,0 @@
-{
-    "version": "2.0",
-    "functions": [
-        {
-            "name": "process_data",
-            "scriptFile": "function/__init__.py"
-        }
-    ]
-}

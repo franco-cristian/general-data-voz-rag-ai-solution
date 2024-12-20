@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Azure Functions
+local.settings.json
+
+# Virtual environments
+venv/
+.env

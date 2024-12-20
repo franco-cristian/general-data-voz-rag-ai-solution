@@ -1,25 +1,17 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 
 function App() {
-  const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [response, setResponse] = useState("");
 
-  const handleQueryChange = (event) => {
-    setQuery(event.target.value);
-  };
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get("https://<tu-function-app-url>/api/process_data", {
-        params: { query: query }
-      });
-      setData(response.data.blobs);
-      setAnswer(response.data.answer);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+  const handleSearch = async () => {
+    const res = await fetch(
+      `https://<AZURE_FUNCTION_URL>/api/function_name?query=${encodeURIComponent(
+        query
+      )}`
+    );
+    const data = await res.json();
+    setResponse(data.answer);
   };
 
   return (
@@ -28,20 +20,11 @@ function App() {
       <input
         type="text"
         value={query}
-        onChange={handleQueryChange}
+        onChange={(e) => setQuery(e.target.value)}
         placeholder="Escribe tu pregunta"
       />
-      <button onClick={fetchData}>Consultar</button>
-      <div>
-        <h2>Respuesta:</h2>
-        <p>{answer}</p>
-      </div>
-      <h2>Blobs en Azure Storage:</h2>
-      <ul>
-        {data.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
+      <button onClick={handleSearch}>Buscar</button>
+      <p>{response}</p>
     </div>
   );
 }
