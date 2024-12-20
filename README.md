@@ -1,6 +1,6 @@
 # Document AI RAG (Retrieve-Augment-Generate)
 
-Este proyecto implementa un sistema de preguntas y respuestas basado en documentos utilizando la metodología RAG (Retrieve, Augment, Generate). Combina Azure Cognitive Search, OpenAI, y Azure Functions para proporcionar respuestas basadas en información contenida en documentos cargados en Azure Blob Storage.
+Este proyecto implementa un sistema de preguntas y respuestas basado en documentos utilizando la metodología RAG (Retrieve, Augment, Generate). Combina Azure Ai Search, OpenAI, y Azure Functions para proporcionar respuestas basadas en información contenida en documentos cargados en Azure Blob Storage.
 
 ---
 
