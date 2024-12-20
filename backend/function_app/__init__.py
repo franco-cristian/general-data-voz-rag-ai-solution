@@ -63,7 +63,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         """
         # Generar respuesta con GPT-4
         response = openai.Completion.create(
-            engine="gpt-4",  # Cambiar "text-davinci-003" por "gpt-4"
+            engine="gpt-4",
             prompt=prompt,
             max_tokens=300
         )
